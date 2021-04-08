@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('nucleo.urls', namespace='nucleo')),
     path('tienda/', include('tienda.urls', namespace='tienda')),
+    path('carrito/', include('carrito.urls', namespace='carrito')),
 ]
 
 from django.conf import settings

@@ -42,7 +42,18 @@
                 </ul>
                 <form class="form">
                     <div class="cart">
-                        Tu carrito esta vacio
+                        {% with total_items=carrito|length%}
+                            {% if total_items > 0%}
+                            Tu carrito:
+                            <a href="{% url "carrito:carrito_detalle"%}">
+                                {{ total_items }}
+                                producto{{ total_items|pluralize}},
+                                ${{ carrito.obtener_precio_total }}
+                            </a>
+                            {% else %}
+                                Tu carrito esta vacio
+                            {% endif %}
+                        {% endwith %}
                     </div>
                     <a class="btn btn-primary " href="# ">Iniciar Sesión</a>
                 </form>

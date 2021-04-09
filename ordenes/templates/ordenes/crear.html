@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid">
+ <h3>Procesar compra</h3>
+</div>
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-sm">
+    <form method="post">
+    {{ formulario|crispy }}
+    <button class="btn btn-primary" type="submit">
+    Finalizar orden</button>
+    {% csrf_token %}
+    </form>
+  </div>
+  <div class="col-sm">
+    <div class="order-info">
+      <h3>Tu orden</h3>
+      <ul>
+      {% for item in carrito %}
+        <li>
+        {{ item.cantidad }}x{{ item.producto.nombre }}
+        <span>${{ item.precio_total }}</span>
+        </li>
+      {% endfor %}
+      </ul>
+      <p>Total: ${{ carrito.obtener_precio_total }}</p>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

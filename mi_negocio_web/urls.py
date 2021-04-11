@@ -23,6 +23,7 @@ urlpatterns = [
     path('carrito/', include('carrito.urls', namespace='carrito')),
     path('ordenes/', include('ordenes.urls', namespace='ordenes')),
     path('accounts/', include('allauth.urls')),
+    path('servicios/', include('servicios.urls', namespace="servicios")),
 ]
 
 from django.conf import settings

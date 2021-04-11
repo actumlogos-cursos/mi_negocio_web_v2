@@ -1,0 +1,45 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div style="height: 550px;" class="col-sm-3">
+            <h3>Servicios</h3>
+            <ul>
+                <li> 
+                    <a href='#'>Reconocimiento de digitos</a> 
+                </li>
+                <li> 
+                    <a href='#'>Conversión de archivos</a> 
+                </li>
+                <li> 
+                    <a href='#'>Transferencia de estilo</a> 
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+                <h3>Clasificación de digitos en imagenes</h3>
+                {% if url is not None%}
+                <img src="{{url}}" width="400px" height="400px" 
+                alt="prediccion">
+                <h4>En la imagen hay un número: {{predictedLabel}}</h4>
+                {% else %}
+                <img src="{%static "/ml/mnist.jpg"%}" width="400px" 
+                height="400px" 
+                alt="digitos">
+                <br><br> 
+                {% endif %}
+                <form method="post" enctype="multipart/form-data" 
+                action="mnist-inicio">
+                    {% csrf_token %}
+                    <input name="files" type="file" required><br><br>
+                    <button class="btn btn-primary" type="submit">
+                    Predicción</button>
+                </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

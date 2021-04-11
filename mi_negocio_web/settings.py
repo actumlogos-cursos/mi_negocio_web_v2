@@ -144,6 +144,7 @@ CARRITO_SESSION_ID = 'carrito'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # django allauth
+
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',

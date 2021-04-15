@@ -7,7 +7,7 @@ import tensorflow as tf
 import json
 
 import img2pdf
-from django.core.file.uploadedfile import InMemoryUploadedFile
+from django.core.files.uploadedfile import InMemoryUploadedFile
 import io
 
 

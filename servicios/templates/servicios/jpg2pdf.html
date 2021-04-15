@@ -1,0 +1,43 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div style="height: 550px;" class="col-sm-3">
+            <h3>Servicios</h3>
+            <ul>
+                <li> 
+                    <a href='#'>Reconocimiento de digitos</a> 
+                </li>
+                <li> 
+                    <a href='#'>Conversión de archivos</a> 
+                </li>
+                <li> 
+                    <a href='#'>Transferencia de estilo</a> 
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <h3>Convierte tus imagenes JPG a PDF</h3>
+                <form method="post" action="jpg-to-pdf" 
+                enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h5>Click en el icono para subir la imagen</h5>
+                        <label for="files">
+                            <i class="fas fa-cloud-upload-alt fa-7x"></i>
+                        </label>
+                        <input id="files" type="file" name="files" 
+                        accept="image/jpeg" multiple hidden required>
+                        <br>
+                        <button type="submit" id="uploadbutton" 
+                        class="btn btn-primary">
+                        Convertir </button>
+                </form>
+            {% if url %}
+                <br>
+                <h5>Tu archivo esta listo para <a href="{{url}}" 
+                download="convertido.pdf">descargarse</a></h5>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}

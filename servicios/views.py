@@ -6,6 +6,11 @@ from django.conf import settings
 import tensorflow as tf
 import json
 
+import img2pdf
+from django.core.file.uploadedfile import InMemoryUploadedFile
+import io
+
+
 def mnist_inicio(request):
     if request.method == "POST":
         model_graph = tf.compat.v1.Graph()
@@ -33,3 +38,24 @@ def mnist_inicio(request):
                     'predictedLabel':predictedLabel}
         return render(request,'servicios/mnist.html', contexto)
     return render(request, 'servicios/mnist.html')
+
+def jpg2pdf(request):
+    if request.method == "POST":
+        fileObj = request.FILES['files']
+        a4inpt = (img2pdf.mm_to_pt(210), img2pdf.mm_to_pt(297))
+        layout_fun = img2pdf.get_layout_fun(a4inpt)
+        archivo = img2pdf.convert(fileObj, layout_fun=layout_fun)
+        data = InMemoryUploadedFile(
+            file=io.BytesIO(archivo),
+            field_name='jpg2pdf',
+            name='{}.pdf'.format('jpg2pdf'),
+            content_type='pdf',
+            size=len(archivo),
+            charset='utf-8',
+        )
+        fs=FileSystemStorage()
+        archivo=fs.save(data.name, data)
+        filePathName=fs.url(archivo)
+        contexto = {'url': filePathName}
+        return render(request, 'servicios/jpg2pdf.html', contexto)
+    return render(request, 'servicios/jpg2pdf.html')

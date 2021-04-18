@@ -1,0 +1,1 @@
+web: gunicorn mi_negocio_web.wsgi

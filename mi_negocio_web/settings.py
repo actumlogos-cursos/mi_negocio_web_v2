@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'aw-ex(xoq7pd0-s_h6sya7&oxl7_^-typ9gr9)k!nbtipv@put'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -168,3 +169,6 @@ MAILCHIMP_EMAIL_LIST_ID = "8bb0b481c9"
 #STRIPE
 STRIPE_PUBLIC_KEY = "pk_test_51I5IrpGkhe2cBeAfeIfnjo5d9SYlfVZsNjxsRMb7qJ2wYvppgDjl58z5eqtggT2Q3jVoBq6BybDd8IkXO71DIchH00g3vDWKmR"
 STRIPE_SECRET_KEY = "sk_test_51I5IrpGkhe2cBeAfCjdTkoHR4kHcUuElv0TulvFSAKmOMHl25ejWvpPEEvh0EOhK1p4uaphkkzn2oIEntgMrNBVO00pxAhcIvM"
+
+# Whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

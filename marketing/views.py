@@ -27,11 +27,11 @@ def suscripcion(request):
         try:
             response = mailchimp.lists.add_list_member(list_id, member_info)
             messages.success(request, "Email recibido. ¡Gracias! ")
-            asunto = "Suscripción"
-            mensaje = "Gracias por suscribirte a nuestro boletin"
-            remitente = "django.actumlogos@gmail.com"
-            destinatario = email
-            send_mail(asunto, mensaje, remitente, [destinatario])
+            #asunto = "Suscripción"
+            #mensaje = "Gracias por suscribirte a nuestro boletin"
+            #remitente = "django.actumlogos@gmail.com"
+            #destinatario = email
+            #send_mail(asunto, mensaje, remitente, [destinatario])
         except ApiClientError as error:
             messages.success(request, "Hubo un problema. Intentelo más tarde")
     

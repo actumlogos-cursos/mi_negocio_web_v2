@@ -24,6 +24,7 @@ urlpatterns = [
     path('ordenes/', include('ordenes.urls', namespace='ordenes')),
     path('accounts/', include('allauth.urls')),
     path('servicios/', include('servicios.urls', namespace="servicios")),
+    path('suscripcion/', include('marketing.urls', namespace="marketing")),
 ]
 
 from django.conf import settings

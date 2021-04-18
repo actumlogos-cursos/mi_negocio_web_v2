@@ -33,6 +33,7 @@ def suscripcion(request):
             #destinatario = email
             #send_mail(asunto, mensaje, remitente, [destinatario])
         except ApiClientError as error:
+            print(error.text)
             messages.success(request, "Hubo un problema. Intentelo más tarde")
     
     return render(request, "marketing/email_sus.html")

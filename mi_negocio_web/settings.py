@@ -173,4 +173,5 @@ STRIPE_PUBLIC_KEY = "pk_test_51I5IrpGkhe2cBeAfeIfnjo5d9SYlfVZsNjxsRMb7qJ2wYvppgD
 STRIPE_SECRET_KEY = "sk_test_51I5IrpGkhe2cBeAfCjdTkoHR4kHcUuElv0TulvFSAKmOMHl25ejWvpPEEvh0EOhK1p4uaphkkzn2oIEntgMrNBVO00pxAhcIvM"
 
 # Whitenoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'

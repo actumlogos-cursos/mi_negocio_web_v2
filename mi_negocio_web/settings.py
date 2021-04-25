@@ -175,3 +175,8 @@ STRIPE_SECRET_KEY = "sk_test_51I5IrpGkhe2cBeAfCjdTkoHR4kHcUuElv0TulvFSAKmOMHl25e
 # Whitenoise
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+# Email Amazon
+EMAIL_BACKEND = 'django_ses.SESBackend'
+AWS_ACCESS_KEY_ID = 'AKIA52SVFHBJGFHYJWEX'
+AWS_SECRET_ACCESS_KEY = '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'

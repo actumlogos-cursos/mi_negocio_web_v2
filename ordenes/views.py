@@ -64,3 +64,9 @@ def SesionPagoStripe(request, precio):
     return JsonResponse({
         'id': checkout_session.id
     })
+
+def pago_paypal(request):
+    carrito = Carrito(request)
+    precio = carrito.obtener_precio_total
+    carrito.limpiar_carrito()
+    return render(request, 'pagos/paypal.html', {'precio':precio})
